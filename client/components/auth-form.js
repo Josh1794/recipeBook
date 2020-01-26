@@ -1,14 +1,14 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
-import {auth} from '../store'
-import {Button, Form, Icon} from 'semantic-ui-react'
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { auth } from "../store";
+import { Button, Form, Icon } from "semantic-ui-react";
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, icon, handleSubmit, error} = props
+  const { name, displayName, icon, handleSubmit, error } = props;
 
   return (
     <div className="Form">
@@ -45,8 +45,8 @@ const AuthForm = props => {
         </Button>
       </Form>
     </div>
-  )
-}
+  );
+};
 
 /**
  * CONTAINER
@@ -57,36 +57,36 @@ const AuthForm = props => {
  */
 const mapLogin = state => {
   return {
-    name: 'login',
-    displayName: 'Login',
-    icon: 'sign-in',
+    name: "login",
+    displayName: "Log In",
+    icon: "sign-in",
     error: state.user.error
-  }
-}
+  };
+};
 
 const mapSignup = state => {
   return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    icon: 'signup',
+    name: "signup",
+    displayName: "Sign Up",
+    icon: "signup",
     error: state.user.error
-  }
-}
+  };
+};
 
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
-      evt.preventDefault()
-      const formName = evt.target.name
-      const email = evt.target.email.value
-      const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      evt.preventDefault();
+      const formName = evt.target.name;
+      const email = evt.target.email.value;
+      const password = evt.target.password.value;
+      dispatch(auth(email, password, formName));
     }
-  }
-}
+  };
+};
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Login = connect(mapLogin, mapDispatch)(AuthForm);
+export const Signup = connect(mapSignup, mapDispatch)(AuthForm);
 
 /**
  * PROP TYPES
@@ -96,4 +96,4 @@ AuthForm.propTypes = {
   displayName: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.object
-}
+};

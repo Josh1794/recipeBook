@@ -5,12 +5,12 @@ import { connect } from "react-redux";
 /**
  * COMPONENT
  */
-export const UserHome = props => {
+export const UserBook = props => {
   const { email } = props;
 
   return (
-    <div className="Profile">
-      <h3>Welcome, {email}</h3>
+    <div className="userBook">
+      <h3>{email}`s Book</h3>
     </div>
   );
 };
@@ -24,11 +24,11 @@ const mapState = state => {
   };
 };
 
-export default connect(mapState)(UserHome);
+export default connect(mapState)(UserBook);
 
 /**
  * PROP TYPES
  */
-UserHome.propTypes = {
+UserBook.propTypes = {
   email: PropTypes.string
 };

@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
-import {Menu, Input} from 'semantic-ui-react'
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../store";
+import { Menu } from "semantic-ui-react";
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Navbar = ({ handleClick, isLoggedIn }) => (
   <div className="Menu">
     <Menu pointing secondary>
       {isLoggedIn ? (
@@ -19,9 +19,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <Link to="/books">Books</Link>
           </Menu.Item>
           <Menu.Menu position="right">
-            <Menu.Item>
-              <Input icon="search" placeholder="Search..." />
-            </Menu.Item>
             <Menu.Item>
               <a href="#" onClick={handleClick}>
                 Logout
@@ -43,7 +40,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       )}
     </Menu>
   </div>
-)
+);
 
 /**
  * CONTAINER
@@ -51,18 +48,18 @@ const Navbar = ({handleClick, isLoggedIn}) => (
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id
-  }
-}
+  };
+};
 
 const mapDispatch = dispatch => {
   return {
     handleClick() {
-      dispatch(logout())
+      dispatch(logout());
     }
-  }
-}
+  };
+};
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(Navbar);
 
 /**
  * PROP TYPES
@@ -70,4 +67,4 @@ export default connect(mapState, mapDispatch)(Navbar)
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
-}
+};
