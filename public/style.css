@@ -1,3 +1,6 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
 body {
   font-family: sans-serif;
 }
@@ -10,12 +13,36 @@ label {
   display: block;
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+.Form {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Profile {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+.Menu {
+  height: 20px;
+  max-width: 100vw;
+}
+
+.Menu a:hover {
+  color: orange;
+}
+.Menu a {
+  color: black;
+}
+
+.Menu div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.Menu h1 {
+  margin: 0px;
+  margin-left: 5px;
 }

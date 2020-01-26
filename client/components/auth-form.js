@@ -2,34 +2,48 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {Button, Form, Icon} from 'semantic-ui-react'
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const {name, displayName, icon, handleSubmit, error} = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
+    <div className="Form">
+      <Form onSubmit={handleSubmit} name={name}>
+        <Form.Field>
           <label htmlFor="email">
-            <small>Email</small>
+            <small>Email:</small>
           </label>
           <input name="email" type="text" />
-        </div>
-        <div>
+        </Form.Field>
+        <br />
+        <Form.Field>
           <label htmlFor="password">
-            <small>Password</small>
+            <small>Password:</small>
           </label>
           <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
+        </Form.Field>
+        <br />
+        <Button animated="fade" type="submit">
+          <Button.Content visible>{displayName}</Button.Content>
+          <Button.Content hidden>
+            <Icon name={icon} />
+          </Button.Content>
+        </Button>
+        {error && error.response && <div>{error.response.data} </div>}
+        <br />
+        <br />
+        <Button
+          color="google plus"
+          className="signInWithGoogle"
+          href="/auth/google"
+        >
+          {displayName} with Google
+        </Button>
+      </Form>
     </div>
   )
 }
@@ -45,6 +59,7 @@ const mapLogin = state => {
   return {
     name: 'login',
     displayName: 'Login',
+    icon: 'sign-in',
     error: state.user.error
   }
 }
@@ -53,6 +68,7 @@ const mapSignup = state => {
   return {
     name: 'signup',
     displayName: 'Sign Up',
+    icon: 'signup',
     error: state.user.error
   }
 }
