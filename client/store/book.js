@@ -17,7 +17,7 @@ const gotSingleBook = products => ({ type: GOT_SINGLE_PRODUCT, products });
  */
 export const getAllBooks = () => async dispatch => {
   try {
-    const { data } = await axios.get("/api/books");
+    const { data } = await axios.get(`/api/books`);
     dispatch(gotAllBooks(data));
   } catch (err) {
     console.error(err);

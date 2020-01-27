@@ -1,34 +1,46 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-/**
- * COMPONENT
- */
-export const UserHome = props => {
-  const { email } = props;
+export default connect(
+  state => ({
+    user: state.user,
+    book: state.book
+  }),
+  dispatch => ({
+    getAllBooks: () => {
+      dispatch(getAllBooks());
+    }
+  })
+)(
+  class UserHome extends React.Component {
+    constructor(props) {
+      super(props);
+    }
 
-  return (
-    <div className="Profile">
-      <h3>Welcome, {email}</h3>
-    </div>
-  );
-};
+    render() {
+      return (
+        <div className="Profile">
+          <h3>Welcome, {this.props.user.email}</h3>
+        </div>
+      );
+    }
+  }
+);
 
 /**
  * CONTAINER
  */
-const mapState = state => {
-  return {
-    email: state.user.email
-  };
-};
+// const mapState = state => {
+//   return {
+//     email: state.user.email
+//   };
+// };
 
-export default connect(mapState)(UserHome);
+// export default connect(mapState)(UserHome);
 
 /**
  * PROP TYPES
  */
-UserHome.propTypes = {
-  email: PropTypes.string
-};
+// UserHome.propTypes = {
+//   email: PropTypes.string
+// };

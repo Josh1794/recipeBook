@@ -1,54 +1,31 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import SmallBook from "./small-book";
+import { getAllBooks } from "../store/book";
 
-/**
- * COMPONENT
- */
-export const UserBook = props => {
-  const { email } = props;
-  console.log(props);
-  return (
-    <div className="userBook">
-      <h3>{email}`s Book</h3>
-      <br />
-      <SmallBook />
-    </div>
-  );
-};
+export default connect(
+  state => ({ user: state.user, book: state.book }),
+  dispatch => ({ getAllBooks: () => dispatch(getAllBooks()) })
+)(
+  class UserBook extends React.Component {
+    constructor(props) {
+      super(props);
+    }
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    email: state.user.email,
-    id: state.user.id
-  };
-};
+    componentDidMount() {
+      this.props.getAllBooks();
+    }
 
-export default connect(mapState)(UserBook);
-
-/**
- * PROP TYPES
- */
-UserBook.propTypes = {
-  email: PropTypes.string
-};
-
-//CLASS COMPONENT
-// export default connect(state => ({ books: state.books, user: state.user }))(
-//   class UserBook extends React.Component {
-//     componentDidMount() {}
-//     render() {
-//       return (
-//         <div className="userBook">
-//           <h3>{this.props.user.email}`s Book</h3>
-//           <br />
-//           <Card.Group />
-//         </div>
-//       );
-//     }
-//   }
-// );
+    render() {
+      return (
+        <div className="userBook">
+          <h3>{this.props.user.email}`s Book</h3>
+          <br />
+          {this.props.book.books.map(books => (
+            <SmallBook key={books.id} {...books} />
+          ))}
+        </div>
+      );
+    }
+  }
+);

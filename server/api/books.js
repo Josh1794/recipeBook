@@ -4,7 +4,6 @@ module.exports = router;
 
 router.get("/", async (req, res, next) => {
   try {
-    console.log(req);
     const books = await Book.findAll();
     if (books) res.json(books);
     else res.sendStatus(500);

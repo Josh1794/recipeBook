@@ -31,11 +31,18 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route exact path="/books" component={UserBook} />
+            <Route exact path="/users/:id/books" component={UserBook} />
             {/* A view of all a user's books */}
-            <Route exact path="/books/:id" component={SingleBook} />{" "}
+            <Route
+              exact
+              path="/users/:id/books/:id"
+              component={SingleBook}
+            />{" "}
             {/* A view of a single recipe book with all its recipes listed */}
-            <Route path="/books/:id/:id" component={SingleRecipe} />{" "}
+            <Route
+              path="/users/:id/books/:id/:id"
+              component={SingleRecipe}
+            />{" "}
             {/* A view of a single recipe with all the steps and instructions shown */}
             <Route path="/home" component={UserHome} />
             {/* A view of a User's profile */}

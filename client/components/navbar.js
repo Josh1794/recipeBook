@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../store";
 import { Menu } from "semantic-ui-react";
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, userId }) => (
   <div className="Menu">
     <Menu pointing secondary>
       {isLoggedIn ? (
@@ -16,7 +16,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             <Link to="/home">Profile</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/books">Books</Link>
+            <Link to={`/users/${userId}/books`}>Books</Link>
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item>
@@ -47,7 +47,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    userId: state.user.id
   };
 };
 
@@ -66,5 +67,6 @@ export default connect(mapState, mapDispatch)(Navbar);
  */
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  userId: PropTypes.number
 };

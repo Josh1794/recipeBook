@@ -1,31 +1,20 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
-
-const items = [
-  {
-    header: "DUMMY BOOK 1",
-    description: "Optional Recipe book description here",
-    //Number of recipes is equal to number of recipes that have this books id
-    meta: "# Recipes"
-  },
-  {
-    header: "DUMMY BOOK 2",
-    description: "Optional Recipe book description here",
-    meta: "# Recipes"
-  },
-  {
-    header: "DUMMY BOOK 3",
-    description: "Optional Recipe book description here",
-    meta: "# Recipes"
-  }
-];
+import { Card, Link } from "semantic-ui-react";
+import { connect } from "react-redux";
 
 export default class SmallBook extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <>
-        <Card.Group items={items} />
-      </>
+      <Card className="smallBookCard">
+        <a href={`/users/${this.props.userId}/books/${this.props.id}`}>
+          <Card.Header>{this.props.name}</Card.Header>
+          <Card.Meta># of Recipes</Card.Meta>
+          <Card.Description>{this.props.description}</Card.Description>
+        </a>
+      </Card>
     );
   }
 }
