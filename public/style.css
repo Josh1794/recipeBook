@@ -22,7 +22,7 @@ form {
   height: 375px;
   border-width: 1px;
   border-style: solid;
-  border-color: gray;
+  border-color: black;
   border-radius: 2%;
   /* box-shadow: 5px 5px 2px 2px rgb(51, 51, 51); */
   background-color: whitesmoke;
@@ -30,7 +30,11 @@ form {
 }
 
 .authPage {
-  min-height: 95.1vh;
+  min-height: 95.3vh;
+  background-image: url("./flat-lay-photography-of-variety-of-vegetables-1435904.jpg");
+  background-size: cover;
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
 }
 
 .authPage h1 {
@@ -40,7 +44,7 @@ form {
   position: relative;
   top: 10vh;
   font-size: calc(16px + 5vmin);
-  color: orange;
+  color: whitesmoke;
 }
 
 .Form {
