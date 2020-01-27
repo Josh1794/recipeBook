@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Login, Signup, UserHome, UserBook } from "./components/index";
+import {
+  Login,
+  Signup,
+  UserHome,
+  UserBook,
+  SingleBook,
+  SingleRecipe
+} from "./components/index";
 import { me } from "./store";
 
 /**
@@ -24,8 +31,14 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
+            <Route exact path="/books" component={UserBook} />
+            {/* A view of all a user's books */}
+            <Route exact path="/books/:id" component={SingleBook} />{" "}
+            {/* A view of a single recipe book with all its recipes listed */}
+            <Route path="/books/:id/:id" component={SingleRecipe} />{" "}
+            {/* A view of a single recipe with all the steps and instructions shown */}
             <Route path="/home" component={UserHome} />
-            <Route path="/books" component={UserBook} />
+            {/* A view of a User's profile */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

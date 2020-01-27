@@ -6,4 +6,6 @@
 export { default as Navbar } from "./navbar";
 export { default as UserHome } from "./user-home";
 export { default as UserBook } from "./user-book";
+export { default as SingleBook } from "./single-book";
+export { default as SingleRecipe } from "./single-recipe";
 export { Login, Signup } from "./auth-form";

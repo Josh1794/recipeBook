@@ -11,39 +11,42 @@ const AuthForm = props => {
   const { name, displayName, icon, handleSubmit, error } = props;
 
   return (
-    <div className="Form">
-      <Form onSubmit={handleSubmit} name={name}>
-        <Form.Field>
-          <label htmlFor="email">
-            <small>Email:</small>
-          </label>
-          <input name="email" type="text" />
-        </Form.Field>
-        <br />
-        <Form.Field>
-          <label htmlFor="password">
-            <small>Password:</small>
-          </label>
-          <input name="password" type="password" />
-        </Form.Field>
-        <br />
-        <Button animated="fade" type="submit">
-          <Button.Content visible>{displayName}</Button.Content>
-          <Button.Content hidden>
-            <Icon name={icon} />
-          </Button.Content>
-        </Button>
-        {error && error.response && <div>{error.response.data} </div>}
-        <br />
-        <br />
-        <Button
-          color="google plus"
-          className="signInWithGoogle"
-          href="/auth/google"
-        >
-          {displayName} with Google
-        </Button>
-      </Form>
+    <div className="authPage">
+      <h1>Recipe Book</h1>
+      <div className="Form">
+        <Form onSubmit={handleSubmit} name={name}>
+          <Form.Field>
+            <label htmlFor="email">
+              <small>Email:</small>
+            </label>
+            <input name="email" type="text" />
+          </Form.Field>
+          <br />
+          <Form.Field>
+            <label htmlFor="password">
+              <small>Password:</small>
+            </label>
+            <input name="password" type="password" />
+          </Form.Field>
+          <br />
+          <Button animated="fade" type="submit">
+            <Button.Content visible>{displayName}</Button.Content>
+            <Button.Content hidden>
+              <Icon name={icon} />
+            </Button.Content>
+          </Button>
+          {error && error.response && <div>{error.response.data} </div>}
+          <br />
+          <br />
+          <Button
+            color="google plus"
+            className="signInWithGoogle"
+            href="/auth/google"
+          >
+            {displayName} with Google
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 };

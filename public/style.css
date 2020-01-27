@@ -28,6 +28,21 @@ form {
   background-color: whitesmoke;
   justify-items: center;
 }
+
+.authPage {
+  min-height: 95.1vh;
+}
+
+.authPage h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 10vh;
+  font-size: calc(16px + 5vmin);
+  color: orange;
+}
+
 .Form {
   position: relative;
   top: 20vh;
@@ -45,6 +60,26 @@ form {
 .userBook {
   margin-top: 10vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+}
+
+.singleBook {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+}
+
+.singleRecipe {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   max-height: 100vh;
 }

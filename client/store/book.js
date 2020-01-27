@@ -42,7 +42,7 @@ const initialState = { books: [], singleBook: {} };
  * REDUCER
  */
 
-export default (state = initialState, action) => {
+export default function(state = initialState, action) {
   switch (action.type) {
     case GOT_ALL_BOOKS:
       return { ...state, books: [...action.books] };
@@ -51,4 +51,4 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-};
+}
