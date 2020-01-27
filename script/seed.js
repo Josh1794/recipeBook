@@ -1,7 +1,7 @@
 "use strict";
 
 const db = require("../server/db");
-const { User, Book, Recipe, Step } = require("../server/db/models");
+const { User, Book, Recipe, Step, Ingredient } = require("../server/db/models");
 
 async function seed() {
   await db.sync({ force: true });
@@ -28,10 +28,15 @@ async function seed() {
     Step.create({ stepNum: "2", instruction: "cook", recipeId: "2" })
   ]);
 
+  const ingredients = await Promise.all([
+    Ingredient.create({ name: "steak", quantity: "1", recipeId: "2" })
+  ]);
+
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${books.length} books`);
   console.log(`seeded ${recipes.length} recipes`);
   console.log(`seeded ${steps.length} steps`);
+  console.log(`seeded ${ingredients.length} ingredients`);
   console.log(`seeded successfully`);
 }
 

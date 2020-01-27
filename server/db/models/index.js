@@ -1,19 +1,22 @@
-const User = require('./user')
-const Book = require('./book')
-const Recipe = require('./recipe')
-const Step = require('./step')
+const User = require("./user");
+const Book = require("./book");
+const Recipe = require("./recipe");
+const Step = require("./step");
+const Ingredient = require("./ingredient");
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
  *
  *    BlogPost.belongsTo(User)
  */
-User.hasMany(Book)
-Book.belongsTo(User)
-Book.hasMany(Recipe)
-Recipe.belongsTo(Book)
-Recipe.hasMany(Step)
-Step.belongsTo(Recipe)
+User.hasMany(Book);
+Book.belongsTo(User);
+Book.hasMany(Recipe);
+Recipe.belongsTo(Book);
+Recipe.hasMany(Step);
+Step.belongsTo(Recipe);
+Recipe.hasMany(Ingredient);
+Ingredient.belongsTo(Recipe);
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -25,5 +28,6 @@ module.exports = {
   User,
   Book,
   Recipe,
-  Step
-}
+  Step,
+  Ingredient
+};

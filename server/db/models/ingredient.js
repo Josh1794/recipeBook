@@ -1,22 +1,21 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const Book = db.define("book", {
+const Ingredient = db.define("ingredient", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-      isAlphanumeric: true
+      notEmpty: true
     }
   },
-  description: {
+  quantity: {
     type: Sequelize.STRING,
-    allowNull: true,
+    allowNull: false,
     validate: {
-      isAlphanumeric: true
+      notEmpty: true
     }
   }
 });
 
-module.exports = Book;
+module.exports = Ingredient;
