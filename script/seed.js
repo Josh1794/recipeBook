@@ -20,7 +20,8 @@ async function seed() {
 
   const recipes = await Promise.all([
     Recipe.create({ name: "cake", bookId: "1" }),
-    Recipe.create({ name: "steak", bookId: "2" })
+    Recipe.create({ name: "steak", bookId: "2" }),
+    Recipe.create({ name: "chicken", bookId: "2" })
   ]);
 
   const steps = await Promise.all([
