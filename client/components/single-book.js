@@ -1,34 +1,37 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Card } from "semantic-ui-react";
+import SmallRecipe from "./small-recipe";
+import { getAllRecipes } from "../store/recipe";
+import { getAllBooks } from "../store/book";
 
-export const SingleBook = props => {
-  console.log(props);
-  return (
-    <div className="singleBook">
-      <h3>DUMMY RECIPE BOOK {props.match.params.id} </h3>
-      <br />
-      <Card.Group>
-        <Card fluid color="blue" header="DUMMY RECIPE 1" />
-        <Card fluid color="orange" header="DUMMY RECIPE 2" />
-        <Card fluid color="black" header="DUMMY RECIPE 3" />
-      </Card.Group>
-    </div>
-  );
-};
+export default connect(
+  state => ({ user: state.user, book: state.book, recipe: state.recipe }),
 
-const mapState = state => {
-  return {
-    email: state.user.email
-  };
-};
+  dispatch => ({ getAllRecipes: () => dispatch(getAllRecipes()) })
+)(
+  class SingleBook extends React.Component {
+    constructor(props) {
+      super(props);
+    }
 
-export default connect(mapState)(SingleBook);
+    componentDidMount() {
+      // this.props.getAllBooks();
+      this.props.getAllRecipes();
+    }
 
-/**
- * PROP TYPES
- */
-SingleBook.propTypes = {
-  email: PropTypes.string
-};
+    render() {
+      console.log(this.props);
+      return (
+        <div className="singleBook">
+          <h3>DUMMY RECIPE BOOK {this.props.match.params.id} </h3>
+          <br />
+          <div>
+            {this.props.book.books.map(books => (
+              <SmallRecipe key={books.id} {...books} user={this.props.user} />
+            ))}
+          </div>
+        </div>
+      );
+    }
+  }
+);

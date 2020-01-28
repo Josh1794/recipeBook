@@ -23,7 +23,7 @@ export default connect(
           <br />
           <div className="smallBookCard">
             {this.props.book.books.map(books => (
-              <SmallBook key={books.id} {...books} />
+              <SmallBook key={books.id} {...books} user={this.props.user} />
             ))}
           </div>
         </div>
