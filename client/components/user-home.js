@@ -1,46 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getAllBooks } from "../store/book";
 
 export default connect(
-  state => ({
-    user: state.user,
-    book: state.book
-  }),
-  dispatch => ({
-    getAllBooks: () => {
-      dispatch(getAllBooks());
-    }
-  })
+  state => ({ user: state.user, book: state.book }),
+  dispatch => ({ getAllBooks: () => dispatch(getAllBooks()) })
 )(
   class UserHome extends React.Component {
     constructor(props) {
       super(props);
     }
 
+    componentDidMount() {
+      this.props.getAllBooks();
+    }
+
     render() {
       return (
         <div className="Profile">
-          <h3>Welcome, {this.props.user.email}</h3>
+          <h1>Welcome, {this.props.user.email}</h1>
         </div>
       );
     }
   }
 );
-
-/**
- * CONTAINER
- */
-// const mapState = state => {
-//   return {
-//     email: state.user.email
-//   };
-// };
-
-// export default connect(mapState)(UserHome);
-
-/**
- * PROP TYPES
- */
-// UserHome.propTypes = {
-//   email: PropTypes.string
-// };
