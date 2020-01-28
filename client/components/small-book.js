@@ -8,8 +8,8 @@ export default class SmallBook extends React.Component {
   }
   render() {
     return (
-      <Card className="smallBookCard">
-        <a href={`/users/${this.props.userId}/books/${this.props.id}`}>
+      <Card>
+        <a href={`/books/${this.props.id}`}>
           <Card.Header>{this.props.name}</Card.Header>
           <Card.Meta># of Recipes</Card.Meta>
           <Card.Description>{this.props.description}</Card.Description>

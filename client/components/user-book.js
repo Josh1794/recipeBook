@@ -21,9 +21,11 @@ export default connect(
         <div className="userBook">
           <h3>{this.props.user.email}`s Book</h3>
           <br />
-          {this.props.book.books.map(books => (
-            <SmallBook key={books.id} {...books} />
-          ))}
+          <div className="smallBookCard">
+            {this.props.book.books.map(books => (
+              <SmallBook key={books.id} {...books} />
+            ))}
+          </div>
         </div>
       );
     }

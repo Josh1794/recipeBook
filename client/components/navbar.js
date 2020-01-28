@@ -16,7 +16,7 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => (
             <Link to="/home">Profile</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to={`/users/${userId}/books`}>Books</Link>
+            <Link to={`/books`}>Books</Link>
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item>
