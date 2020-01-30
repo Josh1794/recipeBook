@@ -10,7 +10,7 @@ const GOT_SINGLE_BOOK = "GOT_SINGLE_BOOK";
  * ACTION CREATORS
  */
 const gotAllBooks = books => ({ type: GOT_ALL_BOOKS, books });
-const gotSingleBook = products => ({ type: GOT_SINGLE_PRODUCT, products });
+const gotSingleBook = books => ({ type: GOT_SINGLE_BOOK, books });
 
 /**
  * THUNK CREATORS

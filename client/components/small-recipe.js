@@ -1,21 +1,18 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
-export default class SmallBook extends React.Component {
+export default class SmallRecipe extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    console.log(this.props);
     {
-      if (this.props.userId === this.props.user.id) {
+      if (String(this.props.bookId) === this.props.match.params.id) {
         return (
           <Card>
-            <a href={`/books/${this.props.id}`}>
+            <a href={`/books/${this.props.match.params.id}/${this.props.id}`}>
               <Card.Header>{this.props.name}</Card.Header>
-              <Card.Meta># of Recipes</Card.Meta>
-              <Card.Description>{this.props.description}</Card.Description>
             </a>
           </Card>
         );
