@@ -21,3 +21,12 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+//route for adding new book (need to add functions to models and finish route)!!!!!
+// router.post("/", async(req,res,next) => {
+//   try {
+
+//   } catch (err) {
+//     next(err)
+//   }
+// })

@@ -19,26 +19,30 @@ export default connect(
 
     render() {
       return (
-        <div className="userBook">
-          <h3>{this.props.user.email}`s Book</h3>
-          <br />
-          {this.props.book.books.map(books => (
-            <SmallBook
-              key={books.id}
-              {...books}
-              user={this.props.user}
-              books={this.props.books}
+        <div className="bookSection">
+          <div className="userBook">
+            <h3>{this.props.user.email}`s Book</h3>
+            <br />
+            <div className="smallContainer">
+              {this.props.book.books.map(books => (
+                <SmallBook
+                  key={books.id}
+                  {...books}
+                  user={this.props.user}
+                  books={this.props.books}
+                />
+              ))}
+            </div>
+            <br />
+            <Button
+              content="New Book"
+              icon="plus"
+              labelPosition="left"
+              color="green"
             />
-          ))}
-          <br />
-          <Button
-            content="New Book"
-            icon="plus"
-            labelPosition="left"
-            color="green"
-          />
-          <br />
-          <Button content="Edit Books" labelPosition="left" icon="edit" />
+            <br />
+            <Button content="Edit Books" labelPosition="left" icon="edit" />
+          </div>
         </div>
       );
     }

@@ -16,6 +16,11 @@ async function seed() {
   const books = await Promise.all([
     Book.create({ name: "Desserts", userId: "3" }),
     Book.create({ name: "Entrees", userId: "3" }),
+    Book.create({
+      name: "Apps",
+      description: "appetizer recipes",
+      userId: "3"
+    }),
     Book.create({ name: "Entrees", userId: "1" })
   ]);
 

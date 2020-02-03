@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import SmallRecipe from "./small-recipe";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { getAllRecipes } from "../store/recipe";
 import { getSingleBook } from "../store/book";
 
@@ -26,15 +26,26 @@ export default connect(
     render() {
       return (
         <div className="singleBook">
+          <Button animated="fade" className="singleBookBack">
+            <a href="/books">
+              <Button.Content visible>Back</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow left" />
+              </Button.Content>
+            </a>
+          </Button>
+
           <h1> {this.props.book.singleBook.name} </h1>
           <br />
-          {this.props.recipe.recipes.map(recipes => (
-            <SmallRecipe
-              key={recipes.id}
-              {...recipes}
-              match={this.props.match}
-            />
-          ))}
+          <div className="smallContainer">
+            {this.props.recipe.recipes.map(recipes => (
+              <SmallRecipe
+                key={recipes.id}
+                {...recipes}
+                match={this.props.match}
+              />
+            ))}
+          </div>
           <Button
             content="New Recipe"
             icon="plus"

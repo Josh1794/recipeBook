@@ -12,7 +12,9 @@ export default class SmallBook extends React.Component {
         return (
           <Card>
             <a href={`/books/${this.props.id}`}>
-              <Card.Header>{this.props.name}</Card.Header>
+              <Card.Header className="bookHeader">
+                {this.props.name}
+              </Card.Header>
               <Card.Meta># of Recipes</Card.Meta>
               <Card.Description>{this.props.description}</Card.Description>
             </a>

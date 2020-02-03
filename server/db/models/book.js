@@ -12,10 +12,7 @@ const Book = db.define("book", {
   },
   description: {
     type: Sequelize.STRING,
-    allowNull: true,
-    validate: {
-      isAlphanumeric: true
-    }
+    allowNull: true
   }
 });
 

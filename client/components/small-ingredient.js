@@ -9,8 +9,10 @@ export default class SmallIngredient extends React.Component {
   render() {
     {
       // if (this.props.recipeId === this.props.match.params.id) {
-      return <List.Item>{this.props.name}</List.Item>;
-      // } else return <></>;
+      return (
+        <List.Item>{this.props.name}</List.Item>
+        // } else return <></>;
+      );
     }
   }
 }

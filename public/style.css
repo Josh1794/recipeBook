@@ -61,36 +61,10 @@ form {
   max-height: 100vh;
 }
 
-.userBook {
-  margin-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-}
-
-.singleBook {
-  margin-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-}
-
-.singleRecipe {
-  margin-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-}
-
 .Menu {
-  height: 42px;
+  height: 5vh;
   background-color: darkgray;
+  width: 100vw;
 }
 
 .Menu a:hover {
@@ -107,4 +81,119 @@ form {
 .Menu h1 {
   margin: 0px;
   margin-left: 5px;
+}
+
+.bookSection {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+
+.userBook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 93.5vh;
+}
+
+.userBook h3 {
+  position: relative;
+  bottom: 20vh;
+}
+
+div.ui.card {
+  margin: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  height: 15vh;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.header {
+  font-size: 12pt;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}
+
+div.header:hover {
+  color: gray;
+}
+
+div.ui.card:hover {
+  box-shadow: 4px, 5px, 0px, black;
+}
+
+div.description {
+  color: black;
+  font-size: 12px;
+}
+
+div.meta {
+  font-size: 12px;
+}
+
+.ui.card:first-child {
+  margin: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.smallContainer {
+  position: relative;
+  bottom: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80vw;
+  flex-wrap: wrap;
+}
+
+.singleBook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 93.5vh;
+}
+
+.singleBookBack {
+  position: relative;
+  bottom: 25vh;
+  right: 45vw;
+}
+
+.singleBook h1 {
+  position: relative;
+  bottom: 25vh;
+}
+
+.singleBookBack a {
+  color: black;
+}
+
+.singleBookBack a:hover {
+  color: black;
+}
+
+.singleRecipe {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+}
+
+div.ui.card.smallRecipe {
+  height: 10vh;
+  width: 10vw;
 }
