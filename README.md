@@ -1,6 +1,10 @@
 # Recipe Book
 
-_Good things come in pairs_
+## About
+
+A place to store your recipe books and favortie recipes online
+
+<!-- _Good things come in pairs_
 
 Looking to mix up a backend with `express`/`sequelize` and a frontend with
 `react`/`redux`? That's `boilermaker`!
@@ -222,4 +226,4 @@ production server to be cluttered up with dev dependencies like
 `webpack`, but at the same time we don't want our development
 git-tracking to be cluttered with production build files like
 `bundle.js`! By doing these steps, we make sure our development and
-production environments both stay nice and clean!
+production environments both stay nice and clean! -->
