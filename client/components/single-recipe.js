@@ -3,12 +3,17 @@ import { connect } from "react-redux";
 import { List } from "semantic-ui-react";
 import SmallIngredient from "./small-ingredient";
 import SmallInstruction from "./small-instruction";
-import { getAllBooks } from "../store/book";
+import { getAllIngredients } from "../store/ingredient";
 
 //convert to class component
 export default connect(
-  state => ({ user: state.user, book: state.book }),
-  dispatch => ({ getAllBooks: () => dispatch(getAllBooks()) })
+  state => ({
+    user: state.user,
+    book: state.book,
+    recipe: state.recipe,
+    ingredient: state.ingredient
+  }),
+  dispatch => ({ getAllIngredients: () => dispatch(getAllIngredients()) })
 )(
   class SingleRecipe extends React.Component {
     constructor(props) {
@@ -16,7 +21,7 @@ export default connect(
     }
 
     componentDidMount() {
-      this.props.getAllBooks();
+      this.props.getAllIngredients();
     }
     render() {
       return (

@@ -7,6 +7,7 @@ export default class SmallIngredient extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     {
       // if (this.props.recipeId === this.props.match.params.id) {
       return (

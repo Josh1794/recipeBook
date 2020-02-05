@@ -4,7 +4,7 @@
  * having to figure out which file they belong to!
  */
 export { default as Navbar } from "./navbar";
-export { default as UserHome } from "./user-home";
+export { default as Profile } from "./profile";
 export { default as UserBook } from "./user-book";
 export { default as SingleBook } from "./single-book";
 export { default as SingleRecipe } from "./single-recipe";

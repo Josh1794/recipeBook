@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import {
   Login,
   Signup,
-  UserHome,
+  Profile,
   UserBook,
   SingleBook,
   SingleRecipe
@@ -37,7 +37,7 @@ class Routes extends Component {
             {/* A view of a single recipe book with all its recipes listed */}
             <Route path="/books/:id/:id" component={SingleRecipe} />{" "}
             {/* A view of a single recipe with all the steps and instructions shown */}
-            <Route path="/home" component={UserHome} />
+            <Route path="/profile" component={Profile} />
             {/* A view of a User's profile */}
           </Switch>
         )}

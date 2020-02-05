@@ -62,13 +62,12 @@ form {
 }
 
 .Menu {
-  height: 5vh;
-  background-color: darkgray;
+  height: 40px;
   width: 100vw;
 }
 
 .Menu a:hover {
-  color: white;
+  color: rgb(128, 117, 117);
 }
 .Menu a {
   color: black;
@@ -76,11 +75,6 @@ form {
 
 .Menu div {
   align-items: center;
-}
-
-.Menu h1 {
-  margin: 0px;
-  margin-left: 5px;
 }
 
 .bookSection {

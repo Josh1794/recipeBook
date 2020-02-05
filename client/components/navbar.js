@@ -7,13 +7,12 @@ import { Menu } from "semantic-ui-react";
 
 const Navbar = ({ handleClick, isLoggedIn, userId }) => (
   <div className="Menu">
-    <Menu pointing secondary>
+    <Menu secondary>
       {isLoggedIn ? (
         <>
           {/* The navbar will show these links after you log in */}
-          <h1>Recipe Book</h1>
           <Menu.Item>
-            <Link to="/home">Profile</Link>
+            <Link to="/profile">Profile</Link>
           </Menu.Item>
           <Menu.Item>
             <Link to={`/books`}>Books</Link>
@@ -29,7 +28,6 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => (
       ) : (
         <>
           {/* The navbar will show these links before you log in */}
-          <h1>Recipe Book</h1>
           <Menu.Item>
             <Link to="/login">Login</Link>
           </Menu.Item>
