@@ -8,4 +8,5 @@ export { default as Profile } from "./profile";
 export { default as UserBook } from "./user-book";
 export { default as SingleBook } from "./single-book";
 export { default as SingleRecipe } from "./single-recipe";
+export { default as SmallIngredient } from "./small-ingredient";
 export { Login, Signup } from "./auth-form";

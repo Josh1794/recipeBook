@@ -14,29 +14,63 @@ async function seed() {
   ]);
 
   const books = await Promise.all([
-    Book.create({ name: "Desserts", userId: "3" }),
-    Book.create({ name: "Entrees", userId: "3" }),
+    Book.create({ name: "Desserts", userId: "3", id: 1 }),
+    Book.create({
+      name: "Entrees",
+      description: "Favorite entrees",
+      userId: "3",
+      id: 2
+    }),
     Book.create({
       name: "Apps",
-      description: "appetizer recipes",
-      userId: "3"
+      description: "Appetizer recipes",
+      userId: "3",
+      id: 3
     }),
-    Book.create({ name: "Entrees", userId: "1" })
+    Book.create({ name: "Entrees", userId: "1", id: 4 })
   ]);
 
   const recipes = await Promise.all([
-    Recipe.create({ name: "cake", bookId: "1" }),
-    Recipe.create({ name: "steak", bookId: "2" }),
-    Recipe.create({ name: "chicken", bookId: "2" })
+    Recipe.create({ name: "cake", bookId: "1", id: 1 }),
+    Recipe.create({ name: "steak", bookId: "2", id: 2 }),
+    Recipe.create({ name: "chicken", bookId: "2", id: 3 })
   ]);
 
   const steps = await Promise.all([
     Step.create({ stepNum: "1", instruction: "season", recipeId: "2" }),
-    Step.create({ stepNum: "2", instruction: "cook", recipeId: "2" })
+    Step.create({ stepNum: "2", instruction: "cook", recipeId: "2" }),
+    Step.create({
+      stepNum: "1",
+      instruction: "season the chicken breast with salt and herbs",
+      recipeId: "3"
+    }),
+    Step.create({
+      stepNum: "2",
+      instruction: "sear the brest in a skillet until skin is light brown",
+      recipeId: "3"
+    }),
+    Step.create({
+      stepNum: "3",
+      instruction: "cook in oven for 35 minutes at 400 degrees Fahrenheit ",
+      recipeId: "3"
+    })
   ]);
 
   const ingredients = await Promise.all([
-    Ingredient.create({ name: "steak", quantity: "1", recipeId: "2" })
+    Ingredient.create({ name: "steak", quantity: "1", recipeId: "2" }),
+    Ingredient.create({
+      name: "butter",
+      quantity: "1 tablespoon",
+      recipeId: "2"
+    }),
+    Ingredient.create({ name: "rosemary", quantity: "1 sprig", recipeId: "2" }),
+    Ingredient.create({ name: "chicken breast", quantity: "1", recipeId: "3" }),
+    Ingredient.create({
+      name: "thyme",
+      quantity: "1 sprig",
+      recipeId: "3"
+    }),
+    Ingredient.create({ name: "rosemary", quantity: "1 sprig", recipeId: "3" })
   ]);
 
   console.log(`seeded ${users.length} users`);

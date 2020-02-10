@@ -12,11 +12,15 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:recipeId", async (req, res, next) => {
   try {
-    const singleIngredient = await Ingredient.findByPk(req.params.id);
-    if (singleIngredient) res.send(singleIngredient);
-    else res.status(404).send("404");
+    const ingredients = await Ingredient.findAll({
+      where: {
+        recipeId: req.params.recipeId
+      }
+    });
+    if (ingredients) res.json(ingredients);
+    else res.sendStatus(500);
   } catch (err) {
     next(err);
   }

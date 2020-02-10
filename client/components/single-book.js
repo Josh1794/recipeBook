@@ -34,7 +34,6 @@ export default connect(
               </Button.Content>
             </a>
           </Button>
-
           <h1> {this.props.book.singleBook.name} </h1>
           <br />
           <div className="smallContainer">

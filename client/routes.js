@@ -35,7 +35,7 @@ class Routes extends Component {
             {/* A view of all a user's books */}
             <Route exact path="/books/:id" component={SingleBook} />{" "}
             {/* A view of a single recipe book with all its recipes listed */}
-            <Route path="/books/:id/:id" component={SingleRecipe} />{" "}
+            <Route path="/books/:recipeId/:id" component={SingleRecipe} />{" "}
             {/* A view of a single recipe with all the steps and instructions shown */}
             <Route path="/profile" component={Profile} />
             {/* A view of a User's profile */}

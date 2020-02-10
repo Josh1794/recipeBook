@@ -1,19 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import { List } from "semantic-ui-react";
+import { List, Button, Icon } from "semantic-ui-react";
 import SmallIngredient from "./small-ingredient";
-import SmallInstruction from "./small-instruction";
+import SmallInstruction from "./small-step";
 import { getAllIngredients } from "../store/ingredient";
+import { getAllRecipes } from "../store/recipe";
+import { getAllSteps } from "../store/step";
 
-//convert to class component
 export default connect(
   state => ({
-    user: state.user,
-    book: state.book,
     recipe: state.recipe,
-    ingredient: state.ingredient
+    ingredient: state.ingredient,
+    step: state.step
   }),
-  dispatch => ({ getAllIngredients: () => dispatch(getAllIngredients()) })
+  dispatch => ({
+    getAllRecipes: () => dispatch(getAllRecipes()),
+    getAllIngredients: () => dispatch(getAllIngredients()),
+    getAllSteps: () => dispatch(getAllSteps())
+  })
 )(
   class SingleRecipe extends React.Component {
     constructor(props) {
@@ -21,20 +25,43 @@ export default connect(
     }
 
     componentDidMount() {
+      this.props.getAllRecipes();
       this.props.getAllIngredients();
+      this.props.getAllSteps();
     }
     render() {
       return (
         <div className="singleRecipe">
-          <h2>DUMMY RECIPE {this.props.match.params.id} </h2>
+          <Button animated="fade" className="singleRecipeBack">
+            <a href="/books">
+              <Button.Content visible>Back</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow left" />
+              </Button.Content>
+            </a>
+          </Button>
+
+          <h2>DUMMY RECIPE {this.props.match.params.recipeId} </h2>
           <br />
           <h3>Ingredients</h3>
           <List>
-            <SmallIngredient props={this.props} />
+            {this.props.ingredient.ingredients.map(ingredients => (
+              <SmallIngredient
+                key={ingredients.id}
+                {...ingredients}
+                match={this.props.match}
+              />
+            ))}
           </List>
           <h3>Instructions</h3>
           <List ordered>
-            <SmallInstruction />
+            {this.props.step.steps.map(steps => (
+              <SmallInstruction
+                key={steps.id}
+                {...steps}
+                match={this.props.match}
+              />
+            ))}
           </List>
         </div>
       );

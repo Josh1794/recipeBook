@@ -159,6 +159,20 @@ div.meta {
   height: 93.5vh;
 }
 
+.singleRecipe {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 93.5vh;
+}
+
+.singleRecipeBack {
+  position: relative;
+  right: 45vw;
+}
+
 .singleBookBack {
   position: relative;
   bottom: 25vh;
@@ -178,13 +192,12 @@ div.meta {
   color: black;
 }
 
-.singleRecipe {
-  margin-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
+.singleRecipeBack a {
+  color: black;
+}
+
+.singleRecipeBack a:hover {
+  color: black;
 }
 
 div.ui.card.smallRecipe {
