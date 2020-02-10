@@ -33,7 +33,7 @@ export default connect(
       return (
         <div className="singleRecipe">
           <Button animated="fade" className="singleRecipeBack">
-            <a href="/books">
+            <a href={`/books/${this.props.match.params.recipeId}`}>
               <Button.Content visible>Back</Button.Content>
               <Button.Content hidden>
                 <Icon name="arrow left" />

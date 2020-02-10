@@ -10,13 +10,13 @@ export default class SmallRecipe extends React.Component {
     {
       if (String(this.props.bookId) === this.props.match.params.id) {
         return (
-          <Card className="smallRecipe">
-            <a href={`/books/${this.props.match.params.id}/${this.props.id}`}>
+          <a href={`/books/${this.props.match.params.id}/${this.props.id}`}>
+            <Card className="smallRecipe">
               <Card.Header className="bookHeader">
                 {this.props.name}
               </Card.Header>
-            </a>
-          </Card>
+            </Card>
+          </a>
         );
       } else return <></>;
     }

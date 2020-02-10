@@ -10,15 +10,15 @@ export default class SmallBook extends React.Component {
     {
       if (this.props.userId === this.props.user.id) {
         return (
-          <Card>
-            <a href={`/books/${this.props.id}`}>
+          <a href={`/books/${this.props.id}`}>
+            <Card>
               <Card.Header className="bookHeader">
                 {this.props.name}
               </Card.Header>
               <Card.Meta># of Recipes</Card.Meta>
               <Card.Description>{this.props.description}</Card.Description>
-            </a>
-          </Card>
+            </Card>
+          </a>
         );
       } else return <></>;
     }

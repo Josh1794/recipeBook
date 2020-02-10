@@ -37,6 +37,11 @@ async function seed() {
   ]);
 
   const steps = await Promise.all([
+    Step.create({
+      stepNum: "1",
+      instruction: "Do what the box says",
+      recipeId: "1"
+    }),
     Step.create({ stepNum: "1", instruction: "season", recipeId: "2" }),
     Step.create({ stepNum: "2", instruction: "cook", recipeId: "2" }),
     Step.create({
@@ -57,6 +62,7 @@ async function seed() {
   ]);
 
   const ingredients = await Promise.all([
+    Ingredient.create({ name: "cake mix", quantity: "1 box", recipeId: "1" }),
     Ingredient.create({ name: "steak", quantity: "1", recipeId: "2" }),
     Ingredient.create({
       name: "butter",

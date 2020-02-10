@@ -7,7 +7,7 @@ export default class SmallIntruction extends React.Component {
   }
 
   render() {
-    console.log(this.props, this.props.recipeId, this.props.match.params.id);
+    //NEED TO MAKE SURE STEPS ARE SORTED BY STEP NUMBER
     {
       if (this.props.recipeId === +this.props.match.params.id) {
         return <List.Item>{this.props.instruction}</List.Item>;
