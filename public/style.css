@@ -44,7 +44,8 @@ form {
   position: relative;
   top: 10vh;
   font-size: calc(16px + 5vmin);
-  color: whitesmoke;
+  color: rgb(156, 156, 156);
+  text-shadow: 2px 2px 3px #000000;
 }
 
 .Form {
