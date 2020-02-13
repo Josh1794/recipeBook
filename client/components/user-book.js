@@ -1,12 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import SmallBook from "./small-book";
-import { getAllBooks } from "../store/book";
-import { Button } from "semantic-ui-react";
+import { getAllBooks, addedBook } from "../store/book";
+import { Button, Modal, TextArea, Header, Form } from "semantic-ui-react";
 
 export default connect(
-  state => ({ user: state.user, book: state.book }),
-  dispatch => ({ getAllBooks: () => dispatch(getAllBooks()) })
+  state => ({
+    user: state.user,
+    book: state.book,
+    name: "",
+    description: ""
+  }),
+  dispatch => ({
+    getAllBooks: () => dispatch(getAllBooks()),
+    addedBook: () => dispatch(addedBook())
+  })
 )(
   class UserBook extends React.Component {
     constructor(props) {
@@ -15,7 +23,18 @@ export default connect(
 
     componentDidMount() {
       this.props.getAllBooks();
+      this.props.addedBook();
     }
+
+    handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+    handleSubmit = () => {
+      this.props.addedBook({
+        name: this.props.name,
+        description: this.props.description,
+        userId: this.props.user.id
+      });
+    };
 
     render() {
       return (
@@ -34,12 +53,45 @@ export default connect(
               ))}
             </div>
             <br />
-            <Button
-              content="New Book"
-              icon="plus"
-              labelPosition="left"
-              color="green"
-            />
+            <Modal
+              trigger={
+                <Button
+                  content="New Book"
+                  icon="plus"
+                  labelPosition="left"
+                  color="green"
+                />
+              }
+            >
+              <Modal.Content>
+                <Modal.Description>
+                  <Header>Your New Book</Header>
+                  <Form>
+                    <Form.Input
+                      placeholder="Name"
+                      label="Book Name"
+                      name="name"
+                      value={this.props.name}
+                      onChange={this.handleChange}
+                    />
+
+                    <Form.Field
+                      id="form-textarea-control-description"
+                      control={TextArea}
+                      label="Description"
+                      placeholder="Description"
+                      name="description"
+                      value={this.props.description}
+                      onChange={this.handleChange}
+                    />
+                    <Button type="submit" onClick={() => this.handleSubmit()}>
+                      Submit
+                    </Button>
+                  </Form>
+                </Modal.Description>
+              </Modal.Content>
+            </Modal>
+
             <br />
             <Button content="Edit Books" labelPosition="left" icon="edit" />
           </div>

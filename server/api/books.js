@@ -22,11 +22,15 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-//route for adding new book (need to add functions to models and finish route)!!!!!
-// router.post("/", async(req,res,next) => {
-//   try {
-
-//   } catch (err) {
-//     next(err)
-//   }
-// })
+router.post("/", async (req, res, next) => {
+  try {
+    const newBook = await Book.create({
+      name: req.body.name,
+      description: req.body.description,
+      userId: req.params.id
+    });
+    res.status(201).send(newBook);
+  } catch (error) {
+    next(error);
+  }
+});
