@@ -7,10 +7,9 @@ import { Button, Modal, TextArea, Header, Form } from "semantic-ui-react";
 export default connect(
   state => ({
     user: state.user,
-    book: state.book,
-    name: "",
-    description: ""
+    book: state.book
   }),
+
   dispatch => ({
     getAllBooks: () => dispatch(getAllBooks()),
     addedBook: () => dispatch(addedBook())
@@ -26,15 +25,15 @@ export default connect(
       this.props.addedBook();
     }
 
-    handleChange = (e, { name, value }) => this.setState({ [name]: value });
+    // handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
-    handleSubmit = () => {
-      this.props.addedBook({
-        name: this.props.name,
-        description: this.props.description,
-        userId: this.props.user.id
-      });
-    };
+    // handleSubmit = () => {
+    //   this.props.addedBook({
+    //     name: this.state.name,
+    //     description: this.state.description,
+    //     userId: this.props.user.id
+    //   });
+    // };
 
     render() {
       return (
@@ -71,7 +70,6 @@ export default connect(
                       placeholder="Name"
                       label="Book Name"
                       name="name"
-                      value={this.props.name}
                       onChange={this.handleChange}
                     />
 
@@ -81,10 +79,9 @@ export default connect(
                       label="Description"
                       placeholder="Description"
                       name="description"
-                      value={this.props.description}
                       onChange={this.handleChange}
                     />
-                    <Button type="submit" onClick={() => this.handleSubmit()}>
+                    <Button type="submit" onClick={() => this.handleSubmit}>
                       Submit
                     </Button>
                   </Form>
