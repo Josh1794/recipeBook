@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import SmallBook from "./small-book";
-import { getAllBooks, addedBook } from "../store/book";
-import { Button, Modal, TextArea, Header, Form } from "semantic-ui-react";
+import { getAllBooks, postBook } from "../store/book";
+import { Button, Modal, Header, Form } from "semantic-ui-react";
 
 export default connect(
   state => ({
@@ -12,28 +12,42 @@ export default connect(
 
   dispatch => ({
     getAllBooks: () => dispatch(getAllBooks()),
-    addedBook: () => dispatch(addedBook())
+    postBook: (name, description, userId) =>
+      dispatch(postBook(name, description, userId))
   })
 )(
   class UserBook extends React.Component {
     constructor(props) {
       super(props);
+      this.state = {
+        bookName: "",
+        description: ""
+      };
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
       this.props.getAllBooks();
-      this.props.addedBook();
     }
 
-    // handleChange = (e, { name, value }) => this.setState({ [name]: value });
+    handleChange(event) {
+      const target = event.target;
+      const value = target.value;
+      const name = target.name;
 
-    // handleSubmit = () => {
-    //   this.props.addedBook({
-    //     name: this.state.name,
-    //     description: this.state.description,
-    //     userId: this.props.user.id
-    //   });
-    // };
+      this.setState({
+        [name]: value
+      });
+    }
+
+    async handleSubmit() {
+      const name = this.state.bookName;
+      const description = this.state.description;
+      const userId = this.props.user.id;
+
+      this.props.postBook(name, description, userId);
+    }
 
     render() {
       return (
@@ -64,24 +78,30 @@ export default connect(
             >
               <Modal.Content>
                 <Modal.Description>
-                  <Header>Your New Book</Header>
                   <Form>
+                    <Header>Your New Book</Header>
                     <Form.Input
-                      placeholder="Name"
                       label="Book Name"
-                      name="name"
+                      placeholder="Your new book name"
+                      name="bookName"
+                      type="text"
+                      value={this.state.bookName}
                       onChange={this.handleChange}
                     />
 
-                    <Form.Field
-                      id="form-textarea-control-description"
-                      control={TextArea}
+                    <Form.TextArea
                       label="Description"
-                      placeholder="Description"
+                      placeholder="Book description"
                       name="description"
+                      type="text"
+                      value={this.state.description}
                       onChange={this.handleChange}
                     />
-                    <Button type="submit" onClick={() => this.handleSubmit}>
+                    <Button
+                      type="submit"
+                      color="blue"
+                      onClick={this.handleSubmit}
+                    >
                       Submit
                     </Button>
                   </Form>

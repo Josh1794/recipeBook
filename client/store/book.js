@@ -35,13 +35,20 @@ export const getSingleBook = id => async dispatch => {
   }
 };
 
-export const addedBook = () => async dispatch => {
-  try {
-    const { data } = await axios.post(`/api/books/`);
-    dispatch(addBook(data));
-  } catch (err) {
-    console.log(err);
-  }
+export const postBook = (name, description, userId) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.post(`/api/books`, {
+        name,
+        description,
+        userId
+      });
+      dispatch(addBook(data));
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 };
 
 /**

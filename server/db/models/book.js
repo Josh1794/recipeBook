@@ -6,8 +6,7 @@ const Book = db.define("book", {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-      isAlphanumeric: true
+      notEmpty: true
     }
   },
   description: {
