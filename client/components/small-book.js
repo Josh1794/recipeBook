@@ -15,7 +15,7 @@ export default class SmallBook extends React.Component {
               <Card.Header className="bookHeader">
                 {this.props.name}
               </Card.Header>
-              <Card.Meta># of Recipes</Card.Meta>
+              <Card.Meta># of Recipes (coming soon)</Card.Meta>
               <Card.Description>{this.props.description}</Card.Description>
             </Card>
           </a>

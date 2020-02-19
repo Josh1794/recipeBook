@@ -100,16 +100,20 @@ form {
 }
 
 div.ui.card {
-  margin: 0px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
   height: 15vh;
   width: 15vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+div.ui.card:hover {
+  box-shadow: 2px 2px 5px rgb(80, 80, 80);
+}
+
+div.ui.card:last-child {
+  margin-top: 10px;
 }
 
 div.header {
@@ -120,11 +124,7 @@ div.header {
 }
 
 div.header:hover {
-  color: gray;
-}
-
-div.ui.card:hover {
-  box-shadow: 4px, 5px, 0px, black;
+  color: lightskyblue;
 }
 
 div.description {
@@ -158,6 +158,7 @@ div.meta {
   align-items: center;
   justify-content: center;
   height: 93.5vh;
+  padding-bottom: 5px;
 }
 
 .singleRecipe {
@@ -204,4 +205,13 @@ div.meta {
 div.ui.card.smallRecipe {
   height: 10vh;
   width: 10vw;
+  margin-top: 5px;
+}
+
+.addForm {
+  position: relative;
+}
+
+div.ui.modal {
+  width: fit-content;
 }

@@ -78,7 +78,7 @@ export default connect(
             >
               <Modal.Content>
                 <Modal.Description>
-                  <Form>
+                  <Form className="addForm">
                     <Header>Your New Book</Header>
                     <Form.Input
                       label="Book Name"
@@ -101,6 +101,7 @@ export default connect(
                       type="submit"
                       color="blue"
                       onClick={this.handleSubmit}
+                      disabled={!this.state.bookName || !this.state.description}
                     >
                       Submit
                     </Button>
