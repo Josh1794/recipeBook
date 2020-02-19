@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="About">
       <br />
-      <Container>
+      <Container className="aboutContainer">
         <Header as="h1" icon textAlign="center">
           <Icon name="food" circular />
           <Header.Content>Welcome to your Digital Recipe Book!</Header.Content>

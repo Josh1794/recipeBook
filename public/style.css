@@ -62,6 +62,22 @@ form {
   max-height: 100vh;
 }
 
+.About {
+  background-image: url("./flat-lay-photography-of-variety-of-vegetables-1435_02d82b3618b7bfc8d9ea1d6ed6de5448.jpg");
+  background-size: cover;
+  min-height: 95.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutContainer {
+  background-color: whitesmoke;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 0.25em;
+}
+
 .Menu {
   height: 40px;
   width: 100vw;
