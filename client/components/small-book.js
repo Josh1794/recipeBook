@@ -10,15 +10,15 @@ export function SmallBook(props) {
             <Card.Header className="bookHeader">{props.name}</Card.Header>
             <Card.Meta># of Recipes (coming soon)</Card.Meta>
             <Card.Description>{props.description}</Card.Description>
+            <div>
+              {props.isEditable ? (
+                <Button color="red" circular icon="trash alternate outline" />
+              ) : (
+                <></>
+              )}
+            </div>
           </Card>
         </a>
-        <div>
-          {props.isEditable ? (
-            <Button color="red" circular icon="trash alternate outline" />
-          ) : (
-            <></>
-          )}
-        </div>
       </div>
     );
   } else return <></>;
