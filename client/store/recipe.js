@@ -5,12 +5,14 @@ import axios from "axios";
  */
 const GOT_ALL_RECIPES = "GOT_ALL_RECIPES";
 const GOT_SINGLE_RECIPE = "GOT_SINGLE_RECIPE";
+const ADD_RECIPE = "ADD_RECIPE";
 
 /**
  * ACTION CREATORS
  */
 const gotAllRecipes = recipes => ({ type: GOT_ALL_RECIPES, recipes });
 const gotSingleRecipe = recipes => ({ type: GOT_SINGLE_RECIPE, recipes });
+const addRecipe = recipes => ({ type: ADD_RECIPE, recipes });
 
 /**
  * THUNK CREATORS
@@ -33,6 +35,21 @@ export const getSingleRecipe = id => async dispatch => {
   }
 };
 
+export const postRecipe = (name, bookId) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.post(`/api/recipes`, {
+        name,
+        bookId
+      });
+      dispatch(addRecipe(data));
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 /**
  * INITIAL STATE
  */
@@ -48,6 +65,8 @@ export default function(state = initialState, action) {
       return { ...state, recipes: [...action.recipes] };
     case GOT_SINGLE_RECIPE:
       return { ...state, singleRecipe: { ...action.recipes } };
+    case ADD_RECIPE:
+      return { ...state, recipes: [...state.recipes, action.recipes] };
     default:
       return state;
   }

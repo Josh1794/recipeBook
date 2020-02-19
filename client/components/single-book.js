@@ -24,6 +24,7 @@ export default connect(
     }
 
     render() {
+      console.log(this.props);
       return (
         <div className="singleBook">
           <Button animated="fade" className="singleBookBack">

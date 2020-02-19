@@ -41,3 +41,15 @@ router.get("/:bookId/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/", async (req, res, next) => {
+  try {
+    const newRecipe = await Recipe.create({
+      name: req.body.name,
+      bookId: req.body.bookId
+    });
+    res.status(201).send(newRecipe);
+  } catch (error) {
+    next(error);
+  }
+});
