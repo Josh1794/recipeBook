@@ -8,7 +8,8 @@ import {
   Profile,
   UserBook,
   SingleBook,
-  SingleRecipe
+  SingleRecipe,
+  About
 } from "./components/index";
 import { me } from "./store";
 
@@ -28,11 +29,15 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/about" component={About} />
+        {/* An about section for info about the site */}
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/books" component={UserBook} />
             {/* A view of all a user's books */}
+            <Route path="/about" component={About} />
+            {/* An about section for info about the site */}
             <Route exact path="/books/:id" component={SingleBook} />{" "}
             {/* A view of a single recipe book with all its recipes listed */}
             <Route path="/books/:recipeId/:id" component={SingleRecipe} />{" "}

@@ -15,6 +15,9 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => (
             <Link to="/profile">Profile</Link>
           </Menu.Item>
           <Menu.Item>
+            <Link to={`/about`}>About</Link>
+          </Menu.Item>
+          <Menu.Item>
             <Link to={`/books`}>Books</Link>
           </Menu.Item>
           <Menu.Menu position="right">
@@ -33,6 +36,9 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => (
           </Menu.Item>
           <Menu.Item>
             <Link to="/signup">Sign Up</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to={`/about`}>About</Link>
           </Menu.Item>
         </>
       )}
