@@ -21,10 +21,12 @@ export default connect(
       super(props);
       this.state = {
         bookName: "",
-        description: ""
+        description: "",
+        isEditable: false
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleEdit = this.handleEdit.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +51,18 @@ export default connect(
       this.props.postBook(name, description, userId);
     }
 
+    handleEdit() {
+      if (this.state.isEditable === false) {
+        this.setState({
+          isEditable: true
+        });
+      } else {
+        this.setState({
+          isEditable: false
+        });
+      }
+    }
+
     render() {
       return (
         <div className="bookSection">
@@ -62,6 +76,7 @@ export default connect(
                   {...books}
                   user={this.props.user}
                   books={this.props.books}
+                  isEditable={this.state.isEditable}
                 />
               ))}
             </div>
@@ -110,7 +125,12 @@ export default connect(
               </Modal.Content>
             </Modal>
             <br />
-            <Button content="Edit Books" labelPosition="left" icon="edit" />
+            <Button
+              content="Edit Books"
+              labelPosition="left"
+              icon="edit"
+              onClick={this.handleEdit}
+            />
           </div>
         </div>
       );

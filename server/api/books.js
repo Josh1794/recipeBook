@@ -34,3 +34,24 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
+
+// router.delete("/delete/:bookId", async (req, res, next) => {
+//   try {
+//     const bookId = req.params.bookId;
+//     const activeCart = await Cart.getUsersCart(req.user.id);
+//     const product = await ProductCart.findOne({
+//       where: {
+//         productId,
+//         cartId: activeCart.id
+//       }
+//     });
+
+//     if (!product) res.sendStatus(404);
+//     else {
+//       product.destroy();
+//       res.sendStatus(201);
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// });
