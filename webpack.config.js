@@ -1,7 +1,4 @@
 const isDev = process.env.NODE_ENV === "development";
-const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: isDev ? "development" : "production",
@@ -9,18 +6,9 @@ module.exports = {
     "@babel/polyfill", // enables async-await
     "./client/index.js"
   ],
-  plugins: [
-    new CleanWebpackPlugin(["dist"]),
-    new HtmlWebpackPlugin({
-      title: "Output Management",
-      title: "Caching"
-    })
-  ],
   output: {
-    // path: __dirname,
-    filename: "./public/bundle.js",
-    filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist")
+    path: __dirname,
+    filename: "./public/bundle.js"
   },
   resolve: {
     extensions: [".js", ".jsx"]
