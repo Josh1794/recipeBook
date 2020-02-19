@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import SmallBook from "./small-book";
+import { SmallBook } from "./small-book";
 import { getAllBooks, postBook } from "../store/book";
 import { Button, Modal, Header, Form } from "semantic-ui-react";
 
@@ -109,7 +109,6 @@ export default connect(
                 </Modal.Description>
               </Modal.Content>
             </Modal>
-
             <br />
             <Button content="Edit Books" labelPosition="left" icon="edit" />
           </div>
