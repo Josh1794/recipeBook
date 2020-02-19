@@ -63,6 +63,8 @@ export default connect(
               />
             ))}
           </List>
+          <br />
+          <Button content="Edit Recipe" labelPosition="left" icon="edit" />
         </div>
       );
     }
