@@ -2,7 +2,20 @@
 
 ## About
 
-A place to store your recipe books and favortie recipes online
+A place to store your favorite recipe books and recipes online
+
+### Features
+
+- Create Books with unique titles and descriptions
+- Add recipes with seperate ingredients and instructions
+- Simple and easy to use UI
+
+### Coming Soon
+
+- Edit/Delete existing books and recipes
+- Expanded user profile with additional info
+- Sharable recipes with social media integration
+- Unit conversion Imperial<->Metric (Stretch Goal)
 
 <!-- _Good things come in pairs_
 
