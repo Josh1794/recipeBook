@@ -25,3 +25,16 @@ router.get("/:recipeId", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post("/", async (req, res, next) => {
+  try {
+    const newIngredient = await Ingredient.create({
+      name: req.body.name,
+      quantity: req.body.quantity,
+      recipeId: req.body.recipeId
+    });
+    res.status(201).send(newIngredient);
+  } catch (error) {
+    next(error);
+  }
+});
