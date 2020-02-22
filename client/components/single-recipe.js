@@ -143,6 +143,7 @@ export default connect(
                 key={ingredients.id}
                 {...ingredients}
                 match={this.props.match}
+                isEditable={this.state.isEditable}
               />
             ))}
           </List>
@@ -194,11 +195,17 @@ export default connect(
                 key={steps.id}
                 {...steps}
                 match={this.props.match}
+                isEditable={this.state.isEditable}
               />
             ))}
           </List>
           <br />
-          <Button content="Edit Recipe" labelPosition="left" icon="edit" />
+          <Button
+            content="Edit Recipe"
+            labelPosition="left"
+            icon="edit"
+            onClick={this.handleEdit}
+          />
         </div>
       );
     }

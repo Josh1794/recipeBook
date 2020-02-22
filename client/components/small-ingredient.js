@@ -1,12 +1,24 @@
 import React from "react";
-import { List } from "semantic-ui-react";
+import { List, Button } from "semantic-ui-react";
 
 export default function SmallIngredient(props) {
   {
     if (props.recipeId === +props.match.params.id) {
       return (
         <List.Item>
-          {props.quantity} {props.name}
+          <div>
+            {props.quantity} {props.name}{" "}
+            {props.isEditable ? (
+              <Button
+                color="red"
+                size="mini"
+                circular
+                icon="trash alternate outline"
+              />
+            ) : (
+              <></>
+            )}
+          </div>
         </List.Item>
       );
     } else return <></>;
