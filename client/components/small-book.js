@@ -12,7 +12,15 @@ export function SmallBook(props) {
             <Card.Description>{props.description}</Card.Description>
             <div>
               {props.isEditable ? (
-                <Button color="red" circular icon="trash alternate outline" />
+                <>
+                  <Button size="mini" circular icon="edit" />
+                  <Button
+                    color="red"
+                    size="mini"
+                    circular
+                    icon="trash alternate outline"
+                  />
+                </>
               ) : (
                 <></>
               )}

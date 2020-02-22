@@ -9,12 +9,15 @@ export default function SmallIngredient(props) {
           <div>
             {props.quantity} {props.name}{" "}
             {props.isEditable ? (
-              <Button
-                color="red"
-                size="mini"
-                circular
-                icon="trash alternate outline"
-              />
+              <>
+                <Button size="mini" circular icon="edit" />
+                <Button
+                  color="red"
+                  size="mini"
+                  circular
+                  icon="trash alternate outline"
+                />
+              </>
             ) : (
               <></>
             )}

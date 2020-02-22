@@ -10,11 +10,7 @@ const Ingredient = db.define("ingredient", {
     }
   },
   quantity: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
   }
 });
 

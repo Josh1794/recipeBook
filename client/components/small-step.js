@@ -10,12 +10,15 @@ export default function SmallIntruction(props) {
           <div>
             {props.instruction}{" "}
             {props.isEditable ? (
-              <Button
-                color="red"
-                size="mini"
-                circular
-                icon="trash alternate outline"
-              />
+              <>
+                <Button size="mini" circular icon="edit" />
+                <Button
+                  color="red"
+                  size="mini"
+                  circular
+                  icon="trash alternate outline"
+                />
+              </>
             ) : (
               <></>
             )}
