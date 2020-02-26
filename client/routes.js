@@ -37,7 +37,7 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/books" component={UserBook} />
             {/* A view of all a user's books */}
-            {/* <Route exact path="/recipes" component={UserRecipe} /> */}
+            <Route exact path="/recipes" component={UserRecipe} />
             {/* A view of all a user's recipes */}
             <Route path="/about" component={About} />
             {/* An about section for info about the site */}

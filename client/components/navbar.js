@@ -20,9 +20,9 @@ const Navbar = ({ handleClick, isLoggedIn, userId }) => (
           <Menu.Item>
             <Link to={`/books`}>Books</Link>
           </Menu.Item>
-          {/* <Menu.Item>
+          <Menu.Item>
             <Link to={`/recipes`}>Recipes</Link>
-          </Menu.Item> */}
+          </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item>
               <a href="#" onClick={handleClick}>

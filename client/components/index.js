@@ -7,7 +7,7 @@ export { default as Navbar } from "./navbar";
 export { default as Profile } from "./profile";
 export { default as About } from "./about";
 export { default as UserBook } from "./user-book";
-// export { default as UserRecipe } from "./user-recipes";
+export { default as UserRecipe } from "./user-recipes";
 export { default as SingleBook } from "./single-book";
 export { default as SingleRecipe } from "./single-recipe";
 export { default as SmallIngredient } from "./small-ingredient";

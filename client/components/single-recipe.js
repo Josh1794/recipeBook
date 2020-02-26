@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import { List, Button, Icon, Modal, Form, Header } from "semantic-ui-react";
 import SmallIngredient from "./small-ingredient";
 import SmallInstruction from "./small-step";
+import RecipeTitle from "./recipe-title";
 import { getAllIngredients, postIngredient } from "../store/ingredient";
 import { getAllSteps, postSteps } from "../store/step";
-import { getAllRecipes } from "../store/recipe";
+import { getAllRecipes, getSingleRecipe } from "../store/recipe";
 
 export default connect(
   state => ({
@@ -15,6 +16,7 @@ export default connect(
   }),
   dispatch => ({
     getAllRecipes: () => dispatch(getAllRecipes()),
+    getSingleRecipe: (id, recipeId) => dispatch(getSingleRecipe(id, recipeId)),
     getAllIngredients: () => dispatch(getAllIngredients()),
     getAllSteps: () => dispatch(getAllSteps()),
     postIngredient: (quantity, name, recipeId) =>
@@ -31,7 +33,9 @@ export default connect(
         ingredientQuantity: "",
         stepNum: "",
         instruction: "",
-        isEditable: false
+        isEditable: false,
+        id: this.props.match.params.id,
+        recipeId: this.props.match.params.recipeId
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmitIngredient = this.handleSubmitIngredient.bind(this);
@@ -41,6 +45,7 @@ export default connect(
 
     componentDidMount() {
       this.props.getAllRecipes();
+      this.props.getSingleRecipe(this.state.id, this.state.recipeId);
       this.props.getAllIngredients();
       this.props.getAllSteps();
     }
@@ -83,6 +88,7 @@ export default connect(
     }
 
     render() {
+      // console.log(this.props.recipe.singleRecipe[0]);
       return (
         <div className="singleRecipe">
           <Button animated="fade" className="singleRecipeBack">
@@ -93,7 +99,7 @@ export default connect(
               </Button.Content>
             </a>
           </Button>
-          <h2>DUMMY RECIPE {this.props.match.params.recipeId} </h2>
+          <h2>{<RecipeTitle recipe={this.props.recipe.singleRecipe[0]} />}</h2>
           <br />
           <h3>
             Ingredients{" "}

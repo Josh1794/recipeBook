@@ -26,9 +26,9 @@ export const getAllRecipes = () => async dispatch => {
   }
 };
 
-export const getSingleRecipe = id => async dispatch => {
+export const getSingleRecipe = (recipeId, id) => async dispatch => {
   try {
-    const { data } = await axios.get(`/api/recipes/${id}`);
+    const { data } = await axios.get(`/api/recipes/${id}/${recipeId}`);
     dispatch(gotSingleRecipe(data));
   } catch (err) {
     console.log(err);
