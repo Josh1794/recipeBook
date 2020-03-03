@@ -67,7 +67,7 @@ export default connect(
       return (
         <div className="bookSection">
           <div className="userBook">
-            <h3>{this.props.user.email}`s Book</h3>
+            <h2>Your Books</h2>
             <br />
             <div className="smallContainer">
               {this.props.book.books.map(books => (
