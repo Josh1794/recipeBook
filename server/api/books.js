@@ -34,7 +34,7 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-
+// NEED TO ADD DELETE AND EDIT ROUTES
 // router.delete("/delete/:bookId", async (req, res, next) => {
 //   try {
 //     const bookId = req.params.bookId;
