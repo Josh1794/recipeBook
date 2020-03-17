@@ -10,7 +10,7 @@ A place to store your favorite recipe books and recipes online
 - Add recipes with seperate ingredients and instructions
 - Simple and easy to use UI
 
-### Coming Soon
+### Future Features
 
 - Edit/Delete existing books and recipes
 - Expanded user profile with additional info
