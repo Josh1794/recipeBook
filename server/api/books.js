@@ -35,23 +35,21 @@ router.post("/", async (req, res, next) => {
   }
 });
 // NEED TO ADD DELETE AND EDIT ROUTES
-// router.delete("/delete/:bookId", async (req, res, next) => {
-//   try {
-//     const bookId = req.params.bookId;
-//     const activeCart = await Cart.getUsersCart(req.user.id);
-//     const product = await ProductCart.findOne({
-//       where: {
-//         productId,
-//         cartId: activeCart.id
-//       }
-//     });
+router.delete("/delete/:bookId", async (req, res, next) => {
+  try {
+    const bookId = req.params.bookId;
+    const book = await Book.findOne({
+      where: {
+        bookId
+      }
+    });
 
-//     if (!product) res.sendStatus(404);
-//     else {
-//       product.destroy();
-//       res.sendStatus(201);
-//     }
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+    if (!book) res.sendStatus(404);
+    else {
+      book.destroy();
+      res.sendStatus(201);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
